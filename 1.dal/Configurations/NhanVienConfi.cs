@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using _1.dal.Table;
@@ -11,11 +13,8 @@ namespace _1.dal.Configurations
     {
         public void Configure(EntityTypeBuilder<NhanVien> builder)
         {
-            builder.ToTable("NhanVien");
-            builder.HasKey(c => c.id);
-
-            builder.Property(c => c.idCv).IsRequired();
-            builder.HasOne(c => c.chucVu).WithMany().HasForeignKey(b => b.idCv);// set foreign key
+            builder.ToTable("ChucVu");
+            //builder
         }
     }
 }

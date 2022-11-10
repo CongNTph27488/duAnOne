@@ -19,17 +19,17 @@ namespace _3.pl.Utilities
             }
             return LoaiBoDauTiengViet(final);//Dungna
         }
-        //public static string ZenAuto(string name)
-        //{
-        //    string temp = name.Trim().ToLower();
-        //    string[] arr = temp.Split(' ');
-        //    string final = "";
-        //    for (int i = 0; i < arr.Length - 1; i++)
-        //    {
-        //        final += GetHoaChuCaiDau(arr[i]);
-        //    }
-        //    return final;
-        //}
+        public static string ZenAuto(string name)
+        {
+            string temp=name.Trim().ToLower();
+            string[] arr = temp.Split(' ');
+            string final = "";
+            for(int i = 0; i < arr.Length - 1; i++)
+            {
+                final+=GetHoaChuCaiDau(arr[i]);
+            }
+            return final;
+        }
         //Phương thức viết hoa tự động: NGUYỄN anh Dũng => Nguyễn Anh Dũng
         public static string VietHoaFullName(string fullName)
         {
@@ -50,9 +50,9 @@ namespace _3.pl.Utilities
         }
         public static string GetHoaChuCaiDau(string value)
         {
-            string temp = value.Trim().ToLower();
+            string temp=value.Trim().ToLower();
             string[] arrValues = temp.Split(' ');
-            string final = Convert.ToString(arrValues[value[0]]).ToUpper() + value.Substring(1) + " ";
+            string final = Convert.ToString(arrValues[value[0]]).ToUpper() + value.Substring(1)+" ";
             return final;
         }
 

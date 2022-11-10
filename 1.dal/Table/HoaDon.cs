@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace _1.dal.Table
 {
@@ -24,6 +26,6 @@ namespace _1.dal.Table
         public DateTime ngThanhToan { get; set; }
         public int tinhTrang { get; set; }
 
-        public ICollection<HoaDonChiTiet> HoaDonCts { get; set; }
+        public ICollection<HoaDonCt> HoaDonCts { get; set; }
     }
 }

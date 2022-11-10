@@ -1,32 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using _1.dal.Table;
 using _1.dal.iRepositories;
 using _1.dal.Repositories;
-using _2.bus.IServices;
-using _2.bus.ViewModel;
+using _2.bus.ViewModels;
+using _2.bus.iServices;
 
 namespace _2.bus.Services
 {
     public class NhanVienSer : iNhanVienSer
     {
-        private iNhanVienRepo nvRepo;
-        private iChucVuRepo cvRepo;
+        private iNhanVienRepo iNvRepo;
+        private iCuaHangRepo iChRepo;
+        private iChucVuRepo iCvRepo;
         public NhanVienSer()
         {
-            nvRepo = new NhanVienRepo();
-            cvRepo = new ChucVuRepo();
+            iNvRepo = new NhanVienRepo();
+            iChRepo = new CuaHangRepo();
+            iCvRepo = new ChucVuRepo();
         }
+
         public string Add(NhanVienView obj)
         {
             if (obj == null) return "that bai";
             var nv = new NhanVien()
             {
-                id = Guid.NewGuid(),
+                id = obj.id,
                 ma = obj.ma,
-                idCv = (Guid)obj.idCv,
+                idCh = obj.idCh,
+                idCv = obj.idCv,
                 ho = obj.ho,
                 tenDem = obj.tenDem,
                 ten = obj.ten,
@@ -38,32 +43,30 @@ namespace _2.bus.Services
                 quocGia = obj.quocGia,
                 trangThai = obj.trangThai,
             };
-            if (nvRepo.Add(nv)) return "thanh cong";
+            if (iNvRepo.Add(nv)) return "thanh cong";
             return "that bai";
         }
 
         public string Delete(NhanVienView obj)
         {
             if (obj == null) return "that bai";
-            var temp = nvRepo.GetAllNv().FirstOrDefault(c => c.id == obj.id);
-            if (nvRepo.Delete(temp)) return "thanh cong";
+            var temp = iNvRepo.GetAllNv().FirstOrDefault(c => c.id == obj.id);
+            if (iNvRepo.Delete(temp)) return "thanh cong";
             return "that bai";
         }
 
         public List<NhanVienView> GetAllNv()
         {
             List<NhanVienView> lst = new List<NhanVienView>();
-            lst = (from a in nvRepo.GetAllNv()
-                   join c in cvRepo.GetAllCv() on a.idCv equals c.id
+            lst = (from a in iNvRepo.GetAllNv()
+                   join b in iChRepo.GetAllCh() on a.idCh equals b.id
+                   join c in iCvRepo.GetAllCv() on a.idCv equals c.id
                    select new NhanVienView()
                    {
                        id = a.id,
                        ma = a.ma,
-
+                       idCh = b.id,
                        idCv = c.id,
-                       tenCv = c.ten,
-                       maCv=c.ma,
-
                        ho = a.ho,
                        tenDem = a.tenDem,
                        ten = a.ten,
@@ -86,26 +89,31 @@ namespace _2.bus.Services
 
         public NhanVien GetById(Guid id)
         {
-            return nvRepo.GetAllNv().FirstOrDefault(c => c.id == id);
-        }
-
-        public Guid GetIdByMa(string ma)
-        {
-            return nvRepo.GetAllNv().FirstOrDefault(c => c.ten == ma).id;
+            return iNvRepo.GetAllNv().FirstOrDefault(c => c.id == id);
         }
 
         public Guid getIdByName(string name)
         {
-            return nvRepo.GetAllNv().FirstOrDefault(c => c.ten == name).id;
+            return iNvRepo.GetAllNv().FirstOrDefault(c => c.ten == name).id;
+        }
+
+        public List<string> lstQuocGia()
+        {
+            return new List<string> { "vietnam", "thailan" };
+        }
+
+        public List<string> lstThanhPho()
+        {
+            return new List<string> { "hanoi", "thaibinh" };
         }
 
         public string Update(NhanVienView obj)
         {
             if (obj == null) return "that bai";
-            var temp = nvRepo.GetAllNv().FirstOrDefault(c => c.id == obj.id);
-            temp.id = obj.id;
+            var temp = iNvRepo.GetAllNv().FirstOrDefault(c => c.id == obj.id);
             temp.ma = obj.ma;
-            temp.idCv = (Guid)obj.idCv;
+            temp.idCh = obj.idCh;
+            temp.idCv = obj.idCv;
             temp.ho = obj.ho;
             temp.tenDem = obj.tenDem;
             temp.ten = obj.ten;
@@ -116,8 +124,10 @@ namespace _2.bus.Services
             temp.thanhPho = obj.thanhPho;
             temp.quocGia = obj.quocGia;
             temp.trangThai = obj.trangThai;
-            if (nvRepo.Update(temp)) return "thanh cong";
+            if (iNvRepo.Update(temp)) return "thanh cong";
             return "that bai";
         }
+
+        
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,8 +17,8 @@ namespace _1.dal.Table
 
         public Guid idLsp { get; set; }
         [ForeignKey(nameof(idLsp))]
-        [InverseProperty(nameof(LoaiSanPham.SanPhams))]
-        public LoaiSanPham loaiSps { get; set; }
+        [InverseProperty(nameof(LoaiSp.SanPhams))]
+        public LoaiSp loaiSps { get; set; }
 
         [StringLength(20)]
         public string ma { get; set; }
@@ -24,7 +26,7 @@ namespace _1.dal.Table
         public string ten { get; set; }
         public decimal giaBan { get; set; }
 
-        //public ICollection<GioHangCt> GioHangCts { get; set; }
-        public ICollection<HoaDonChiTiet> HoaDonCts { get; set; }
+        public ICollection<GioHangCt> GioHangCts { get; set; }
+        public ICollection<HoaDonCt> HoaDonCts { get; set; }
     }
 }

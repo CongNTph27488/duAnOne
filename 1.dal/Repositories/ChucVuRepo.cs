@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using _1.dal.DaoDbContext;
 using _1.dal.Table;
 using _1.dal.iRepositories;
-using _1.dal.DAODbContext   ;
 
 namespace _1.dal.Repositories
 {
-    public class ChucVuRepo : iChucVuRepo
+    public class ChucVuRepo:iChucVuRepo
     {
-        private DAOTeam06DbContext dbContext;
+        private DAODbContext dbContext;
         public ChucVuRepo()
         {
-            dbContext = new DAOTeam06DbContext();
+            dbContext = new DAODbContext();
         }
-        public bool Add(ChucVu obj)
+
+        bool iChucVuRepo.Add(ChucVu obj)
         {
             if (obj == null) return false;
             obj.id = Guid.NewGuid();
@@ -24,7 +26,7 @@ namespace _1.dal.Repositories
             return true;
         }
 
-        public bool Delete(ChucVu obj)
+        bool iChucVuRepo.Delete(ChucVu obj)
         {
             if (obj == null) return false;
             var temp = dbContext.chucVus.FirstOrDefault(c => c.id == obj.id);
@@ -33,17 +35,17 @@ namespace _1.dal.Repositories
             return true;
         }
 
-        public List<ChucVu> GetAllCv()
+        List<ChucVu> iChucVuRepo.GetAllCv()
         {
             return dbContext.chucVus.ToList();
         }
 
-        public ChucVu GetById(Guid id)
+        ChucVu iChucVuRepo.GetById(Guid id)
         {
             return dbContext.chucVus.FirstOrDefault(c => c.id == id);
         }
 
-        public bool Update(ChucVu obj)
+        bool iChucVuRepo.Update(ChucVu obj)
         {
             if (obj == null) return false;
             var temp = dbContext.chucVus.FirstOrDefault(c => c.id == obj.id);

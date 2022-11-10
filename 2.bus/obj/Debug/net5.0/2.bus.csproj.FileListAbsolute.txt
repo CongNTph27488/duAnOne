@@ -1,0 +1,15 @@
+D:\cSharp\DuAnOne_team06_it17305\2.bus\bin\Debug\net5.0\2.bus.deps.json
+D:\cSharp\DuAnOne_team06_it17305\2.bus\bin\Debug\net5.0\2.bus.dll
+D:\cSharp\DuAnOne_team06_it17305\2.bus\bin\Debug\net5.0\2.bus.pdb
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.csproj.AssemblyReference.cache
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.AssemblyInfoInputs.cache
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.AssemblyInfo.cs
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.csproj.CoreCompileInputs.cache
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.dll
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\refint\2.bus.dll
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.pdb
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\ref\2.bus.dll
+D:\cSharp\DuAnOne_team06_it17305\2.bus\bin\Debug\net5.0\1.dal.dll
+D:\cSharp\DuAnOne_team06_it17305\2.bus\bin\Debug\net5.0\1.dal.pdb
+D:\cSharp\DuAnOne_team06_it17305\2.bus\obj\Debug\net5.0\2.bus.csproj.CopyComplete

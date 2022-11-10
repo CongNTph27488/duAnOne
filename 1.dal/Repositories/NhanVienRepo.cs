@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using _1.dal.DaoDbContext;
 using _1.dal.Table;
 using _1.dal.iRepositories;
-using _1.dal.DAODbContext;
 
 namespace _1.dal.Repositories
 {
     public class NhanVienRepo : iNhanVienRepo
     {
-        private DAOTeam06DbContext dbContext;
+        private DAODbContext dbContext;
         public NhanVienRepo()
         {
-            dbContext = new DAOTeam06DbContext();
+            dbContext = new DAODbContext();
         }
-        public bool Add(NhanVien obj)
+        bool iNhanVienRepo.Add(NhanVien obj)
         {
             if (obj == null) return false;
             obj.id = Guid.NewGuid();
@@ -24,29 +25,30 @@ namespace _1.dal.Repositories
             return true;
         }
 
-        public bool Delete(NhanVien obj)
+        bool iNhanVienRepo.Delete(NhanVien obj)
         {
-            if (obj == null) return false;
+            if(obj == null) return false;
             var temp = dbContext.nhanViens.FirstOrDefault(c => c.id == obj.id);
             dbContext.Remove(temp);
             dbContext.SaveChanges();
             return true;
         }
 
-        public List<NhanVien> GetAllNv()
+        List<NhanVien> iNhanVienRepo.GetAllNv()
         {
             return dbContext.nhanViens.ToList();
         }
 
-        public NhanVien GetById(Guid id)
+        NhanVien iNhanVienRepo.GetById(Guid id)
         {
-            return dbContext.nhanViens.FirstOrDefault(c => c.id == id);
+            return dbContext.nhanViens.FirstOrDefault(c=>c.id==id);
         }
 
-        public bool Update(NhanVien obj)
+        bool iNhanVienRepo.Update(NhanVien obj)
         {
             if (obj == null) return false;
             var temp = dbContext.nhanViens.FirstOrDefault(c => c.id == obj.id);
+            temp.idCh = obj.idCh;
             temp.idCv = obj.idCv;
             temp.ma = obj.ma;
             temp.ho = obj.ho;

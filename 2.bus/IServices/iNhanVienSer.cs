@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using _1.dal.Table;
-using _2.bus.ViewModel;
+using _2.bus.ViewModels;
 
-namespace _2.bus.IServices
+namespace _2.bus.iServices
 {
     public interface iNhanVienSer
     {
@@ -15,6 +17,7 @@ namespace _2.bus.IServices
         public List<NhanVienView> GetAllNv(string input);
         public NhanVien GetById(Guid id);
         public Guid getIdByName(string name);
-        public Guid GetIdByMa(string ma);
+        public List<string> lstThanhPho();
+        public List<string> lstQuocGia();
     }
 }

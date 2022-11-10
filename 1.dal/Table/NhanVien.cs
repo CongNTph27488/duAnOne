@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +16,11 @@ namespace _1.dal.Table
         [Required]
         [StringLength(20)]
         public string ma { get; set; }
+
+        public Guid idCh { get; set; }
+        [ForeignKey(nameof(idCh))]
+        [InverseProperty(nameof(CuaHang.NhanViens))]
+        public CuaHang cuaHang { get; set; }
 
         public Guid idCv { get; set; }
         [ForeignKey(nameof(idCv))]
@@ -39,7 +46,7 @@ namespace _1.dal.Table
         public string quocGia { get; set; }
         public int trangThai { get; set; }
 
-        //public ICollection<GioHang> GioHangs { get; set; }
+        public ICollection<GioHang> GioHangs { get; set; }
         public ICollection<HoaDon> HoaDons { get; set; }
     }
 }

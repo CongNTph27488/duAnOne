@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using _1.dal.DaoDbContext;
 using _1.dal.Table;
 using _1.dal.iRepositories;
-using _1.dal.DAODbContext;
-
 
 namespace _1.dal.Repositories
 {
-    public class SanPhamRepo:iSanPhamRepo
+    public class SanPhamRepo : iSanPhamRepo
     {
-        private DAOTeam06DbContext dbContext;
+        private DAODbContext dbContext;
         public SanPhamRepo()
         {
-            dbContext = new DAOTeam06DbContext();
+            dbContext = new DAODbContext(); 
         }
-
-        public bool Add(SanPham obj)
+        bool iSanPhamRepo.Add(SanPham obj)
         {
             if (obj == null) return false;
             obj.id = Guid.NewGuid();
@@ -25,8 +24,7 @@ namespace _1.dal.Repositories
             dbContext.SaveChanges();
             return true;
         }
-
-        public bool Delete(SanPham obj)
+        bool iSanPhamRepo.Delete(SanPham obj)
         {
             if (obj == null) return false;
             var temp = dbContext.sanPhams.FirstOrDefault(c => c.id == obj.id);
@@ -34,18 +32,15 @@ namespace _1.dal.Repositories
             dbContext.SaveChanges();
             return true;
         }
-
-        public List<SanPham> GetAllSp()
+        List<SanPham> iSanPhamRepo.GetAllSp()
         {
             return dbContext.sanPhams.ToList();
         }
-
-        public SanPham GetByIt(Guid id)
+        SanPham iSanPhamRepo.GetByIt(Guid id)
         {
             return dbContext.sanPhams.FirstOrDefault(c => c.id == id);
         }
-
-        public bool Update(SanPham obj)
+        bool iSanPhamRepo.Update(SanPham obj)
         {
             if (obj == null) return false;
             var temp = dbContext.sanPhams.FirstOrDefault(c => c.id == obj.id);
@@ -53,7 +48,7 @@ namespace _1.dal.Repositories
             temp.ten = obj.ten;
             temp.giaBan = obj.giaBan;
             temp.idLsp = obj.idLsp;
-            dbContext.Update(temp);
+            dbContext.Update(temp);           
             dbContext.SaveChanges();
             return true;
         }

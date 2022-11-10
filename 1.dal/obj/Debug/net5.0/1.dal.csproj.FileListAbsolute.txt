@@ -1,0 +1,15 @@
+D:\cSharp\DuAnOne_team06_it17305\1.dal\bin\Debug\net5.0\1.dal.deps.json
+D:\cSharp\DuAnOne_team06_it17305\1.dal\bin\Debug\net5.0\1.dal.dll
+D:\cSharp\DuAnOne_team06_it17305\1.dal\bin\Debug\net5.0\1.dal.pdb
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.csproj.AssemblyReference.cache
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.AssemblyInfoInputs.cache
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.AssemblyInfo.cs
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.csproj.CoreCompileInputs.cache
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.dll
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\refint\1.dal.dll
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.pdb
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\ref\1.dal.dll
+D:\cSharp\DuAnOne_team06_it17305\1.dal\bin\Debug\net5.0\1.dal.runtimeconfig.json
+D:\cSharp\DuAnOne_team06_it17305\1.dal\bin\Debug\net5.0\1.dal.runtimeconfig.dev.json
+D:\cSharp\DuAnOne_team06_it17305\1.dal\obj\Debug\net5.0\1.dal.genruntimeconfig.cache

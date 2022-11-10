@@ -1,56 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using _1.dal.Table;
 using _1.dal.iRepositories;
 using _1.dal.Repositories;
-using _2.bus.IServices;
-using _2.bus.ViewModel;
+using _2.bus.ViewModels;
+using _2.bus.iServices;
 
 namespace _2.bus.Services
 {
-    public class HoaDonSer : iHoaDonSer
+    public class HoaDonSer:iHoaDonSer
     {
-        private iHoaDonRepo hdRepo;
-        private iNhanVienRepo nvRepo;
+        private iHoaDonRepo iHdRepo;
+        private iNhanVienRepo iNvRepo;
         public HoaDonSer()
         {
-            hdRepo = new HoaDonRepo();
-            nvRepo = new NhanVienRepo();
+            iHdRepo = new HoaDonRepo();
+            iNvRepo = new NhanVienRepo();
         }
+
         public string Add(HoaDonView obj)
         {
             if (obj == null) return "that bai";
             var hd = new HoaDon()
             {
                 id = obj.id,
-                idNv = (Guid)obj.idNv,
+                idNv = obj.idNv,
                 ma = obj.ma,
                 ngTao = obj.ngTao,
                 ngThanhToan = obj.ngThanhToan,
             };
-            if (hdRepo.Add(hd)) return "thanh cong";
+            if (iHdRepo.Add(hd)) return "thanh cong";
             return "that bai";
         }
 
         public string Delete(HoaDonView obj)
         {
             if (obj == null) return "that bai";
-            var temp = hdRepo.GetAllHd().FirstOrDefault(c => c.id == obj.id);
-            if (hdRepo.Delete(temp)) return "thanh cong";
+            var temp = iHdRepo.GetAllHd().FirstOrDefault(c => c.id == obj.id);
+            if (iHdRepo.Delete(temp)) return "thanh cong";
             return "that bai";
         }
 
         public List<HoaDonView> GetAllHd()
         {
             List<HoaDonView> lst = new List<HoaDonView>();
-            lst = (from a in hdRepo.GetAllHd()
-                   join b in nvRepo.GetAllNv() on a.idNv equals b.id
+            lst = (from a in iHdRepo.GetAllHd()
+                   join b in iNvRepo.GetAllNv() on a.idNv equals b.id
                    select new HoaDonView()
                    {
                        id = a.id,
-                       idNv = (Guid)b.id,
+                       idNv = b.id,
                        ma = a.ma,
                        ngTao = a.ngTao,
                        ngThanhToan = a.ngThanhToan,
@@ -66,23 +68,23 @@ namespace _2.bus.Services
 
         public HoaDon GetById(Guid id)
         {
-            return hdRepo.GetAllHd().FirstOrDefault(c => c.id == id);
+            return iHdRepo.GetAllHd().FirstOrDefault(c => c.id == id);
         }
 
-        public Guid GetIdByMa(string ma)
+        public Guid GetIdByName(string name)
         {
-            return hdRepo.GetAllHd().FirstOrDefault(c => c.ma == ma).id;
+            throw new NotImplementedException();
         }
 
         public string Update(HoaDonView obj)
         {
             if (obj == null) return "that bai";
-            var temp = hdRepo.GetAllHd().FirstOrDefault(c => c.id == obj.id);
-            temp.idNv = (Guid)obj.idNv;
+            var temp = iHdRepo.GetAllHd().FirstOrDefault(c => c.id == obj.id);
+            temp.idNv = obj.idNv;
             temp.ma = obj.ma;
             temp.ngTao = obj.ngTao;
             temp.ngThanhToan = obj.ngThanhToan;
-            if (hdRepo.Update(temp)) return "thanh cong";
+            if (iHdRepo.Update(temp)) return "thanh cong";
             return "that bai";
         }
     }
