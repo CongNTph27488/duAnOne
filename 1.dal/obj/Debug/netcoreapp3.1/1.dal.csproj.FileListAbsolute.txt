@@ -1,0 +1,13 @@
+D:\cSharp\DuAn1_team06_it17305\1.dal\bin\Debug\netcoreapp3.1\1.dal.deps.json
+D:\cSharp\DuAn1_team06_it17305\1.dal\bin\Debug\netcoreapp3.1\1.dal.runtimeconfig.json
+D:\cSharp\DuAn1_team06_it17305\1.dal\bin\Debug\netcoreapp3.1\1.dal.runtimeconfig.dev.json
+D:\cSharp\DuAn1_team06_it17305\1.dal\bin\Debug\netcoreapp3.1\1.dal.dll
+D:\cSharp\DuAn1_team06_it17305\1.dal\bin\Debug\netcoreapp3.1\1.dal.pdb
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.csproj.AssemblyReference.cache
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.AssemblyInfoInputs.cache
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.AssemblyInfo.cs
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.csproj.CoreCompileInputs.cache
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.dll
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.pdb
+D:\cSharp\DuAn1_team06_it17305\1.dal\obj\Debug\netcoreapp3.1\1.dal.genruntimeconfig.cache
